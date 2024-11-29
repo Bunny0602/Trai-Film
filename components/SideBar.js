@@ -99,6 +99,7 @@ const styles = StyleSheet.create({
   },
 
   Text: {
+    fontFamily: "Roboto-Regular",
     fontSize: 16,
     color: "#FFFFFF",
     marginLeft: 10,

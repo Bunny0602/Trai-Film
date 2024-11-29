@@ -1,5 +1,11 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Image,
+} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useCustomFonts } from "../components/font";
 
@@ -12,25 +18,29 @@ const SigninandCreate = () => {
   }
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.Tagline}>Where Every Story Finds a Home</Text>
+      <View style={styles.container}>
+        <Text style={styles.Tagline}>Where Every Story Finds a Home.</Text>
 
-      <View style={styles.ButtonContainer}>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.navigate("HomeScreen")}
-        >
-          <Text style={styles.signin}>Sign In</Text>
-        </TouchableOpacity>
+        <View style={styles.ButtonContainer}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.navigate("HomeScreen")}
+          >
+            <Text style={styles.signin}>Sign In</Text>
+          </TouchableOpacity>
 
-        <TouchableOpacity
-          style={[styles.button, styles.bButton]}
-          onPress={() => navigation.navigate("SignUp")}
-        >
-          <Text style={styles.Text}>Create an Account</Text>
-        </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.button, styles.bButton]}
+            onPress={() => navigation.navigate("SignUp")}
+          >
+            <Text style={styles.Text}>Create an Account</Text>
+          </TouchableOpacity>
+        </View>
+        <Image
+          source={require("../assets/images/logo.png")}
+          style={styles.logo}
+        />
       </View>
-    </View>
   );
 };
 
@@ -43,6 +53,16 @@ const styles = StyleSheet.create({
     padding: 20,
   },
 
+  logo: {
+    width: 524,
+    height: 524,
+    resizeMode: "contain",
+    marginRight: 70,
+    bottom: 60,
+    transform: [{ rotate: "-40deg" }],
+    zIndex: 1,
+  },
+
   Tagline: {
     fontFamily: "Roboto-Bold",
     fontSize: 50,
@@ -51,13 +71,15 @@ const styles = StyleSheet.create({
     textAlign: "left",
     marginRight: 65,
     marginTop: 100,
+    zIndex: 10,
   },
 
   ButtonContainer: {
     position: "absolute",
-    bottom: 50,
+    bottom: 135,
     width: "100%",
     alignItems: "center",
+    zIndex: 10,
   },
 
   button: {
@@ -72,7 +94,6 @@ const styles = StyleSheet.create({
 
   bButton: {
     backgroundColor: "transparent",
-    borderWidth: 1,
     borderColor: "#000000",
   },
 
